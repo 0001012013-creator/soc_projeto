@@ -1,0 +1,16 @@
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+}
+
+header {
+    background: #1e293b;
+    padding: 15px;
+}
+
+nav a {
+    color: cyan;
+    margin-right: 15px;
+    text-decoration: none;
+}
