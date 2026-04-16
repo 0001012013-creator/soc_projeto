@@ -89,10 +89,10 @@ USE_I18N = True
 USE_TZ = True
 
 # Arquivos estáticos (CSS)
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "SecurityOps/static",
+    BASE_DIR / "static",
 ]
 
 # Arquivos de mídia (imagens upload)

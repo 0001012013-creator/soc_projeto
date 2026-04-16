@@ -1,30 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-
-    <!-- ✅ CORREÇÃO AQUI -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurityOps Center</title>
 
-    <title>SOC</title>
+    <!-- Fonte mais profissional -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
 
-<header>
-    <h1>SOC</h1>
-    <nav>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'incidente' %}">Incidente</a>
-        <a href="{% url 'cursos' %}">Cursos</a>
-    </nav>
+<header class="navbar">
+    <div class="nav-container">
+
+        <!-- LOGO -->
+        <h1 class="logo">🛡️ SecurityOps</h1>
+
+        <!-- MENU -->
+        <nav class="init">
+            <a href="{% url 'home' %}">Dashboard</a>
+            <a href="{% url 'incidente' %}">Incidentes</a>
+            <a href="{% url 'cursos' %}">Cursos</a>
+        </nav>
+
+    </div>
 </header>
 
-<main>
-    {% block content %}{% endblock %}
+<main class="container">
+    {% block content %}
+    {% endblock %}
 </main>
+
+<!-- RODAPÉ -->
+<footer class="footer">
+    <p style="color: white;">© 2026 SecurityOps Center • Segurança da Informação</p>
+</footer>
 
 </body>
 </html>

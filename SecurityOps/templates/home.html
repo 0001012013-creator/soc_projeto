@@ -1,10 +1,58 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<h2>Bem-vindo ao SOC</h2>
 
-<a href="{% url 'incidente' %}">
-    <button>Criar Incidente</button>
-</a>
+<div class="card">
+    <h2>Bem-vindo ao SecurityOps Center</h2>
+
+    <!-- BLOCO 1 -->
+    <div class="lgpd-container">
+
+        <div class="lgpd-img">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4-BXHpMbaA-uIkPdcNNxCBo37ZnCF6Et0jA&s" alt="LGPD">
+        </div>
+
+        <div class="lgpd-texto">
+            <p>
+                A Lei Geral de Proteção de Dados (LGPD) é a lei brasileira que protege os dados pessoais, 
+                promovendo mais segurança, privacidade e transparência. Mais do que uma obrigação legal, 
+                ela representa um compromisso essencial com a confiança, a responsabilidade 
+                e o profissionalismo no uso das informações.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- BLOCO 2 -->
+    <div class="lgpd-container">
+
+        <div class="lgpd-img">
+            <img src="https://www.valuehost.com.br/blog/wp-content/uploads/2019/07/301491-linked-content-post-satelite-qual-o-papel-do-profissional-de-ti-na-protecao-de-dados.jpg.webp" alt="Segurança de Dados">
+        </div>
+
+        <div class="lgpd-texto">
+            <p>
+                A proteção de dados é fundamental para garantir a privacidade e a segurança 
+                das informações. Mais do que tecnologia, envolve responsabilidade e o uso 
+                ético dos dados, fortalecendo a confiança em sistemas e serviços digitais.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- 🔥 IMAGEM LOCAL (CORRIGIDA) -->
+    <div class="fluxo-img">
+        <img src="C:\Users\Aluno_Noite\Downloads\fluxo.png" alt="Fluxo do sistema">
+    </div>
+
+    <!-- BOTÃO -->
+    <div class="btn-incidente">
+        <a href="{% url 'incidente' %}">
+            <button>Criar Incidente</button>
+        </a>
+    </div>
+
+</div>
 
 {% endblock %}
