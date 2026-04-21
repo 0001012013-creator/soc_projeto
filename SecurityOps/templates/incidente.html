@@ -2,16 +2,90 @@
 
 {% block content %}
 
+<!-- FORM -->
 <div class="card">
-    <h2>Registrar Incidente</h2>
+    <h2>
+        {% if form.instance.id %}
+            Editar Incidente
+        {% else %}
+            Registrar Incidente
+        {% endif %}
+    </h2>
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
-        {{ form.as_p }}
+        <div>
+            {{ form.nome_completo.label_tag }}
+            {{ form.nome_completo }}
+        </div>
 
-        <button type="submit">Criar Incidente</button>
+        <div>
+            {{ form.matricula.label_tag }}
+            {{ form.matricula }}
+        </div>
+
+        <div>
+            {{ form.titulo.label_tag }}
+            {{ form.titulo }}
+        </div>
+
+        <div>
+            {{ form.descricao.label_tag }}
+            {{ form.descricao }}
+        </div>
+
+        <!-- IMAGEM (UPLOAD SEMPRE) -->
+        <div>
+            {{ form.imagem.label_tag }}
+            {{ form.imagem }}
+        </div>
+
+        <!-- MOSTRA IMAGEM ATUAL (SÓ EDIÇÃO) -->
+        {% if form.instance.id and form.instance.imagem %}
+            <div style="margin-top:10px;">
+                <p><strong>Imagem atual:</strong></p>
+                <img src="{{ form.instance.imagem.url }}" width="120" style="border-radius:8px;">
+            </div>
+        {% endif %}
+
+        <br>
+
+        <button type="submit">
+            {% if form.instance.id %}
+                Atualizar
+            {% else %}
+                Criar Incidente
+            {% endif %}
+        </button>
     </form>
+</div>
+
+<!-- LISTA -->
+<div class="card">
+    <h2>Incidentes Registrados</h2>
+
+    {% for incidente in incidentes %}
+        <div class="incidente-item">
+
+            <strong>{{ incidente.titulo }}</strong>
+
+            <div class="incidente-actions">
+                <a href="{% url 'editar_incidente' incidente.id %}">
+                    <button type="button">Editar</button>
+                </a>
+
+                <a href="{% url 'excluir_incidente' incidente.id %}">
+                    <button type="button" class="delete">Excluir</button>
+                </a>
+            </div>
+
+        </div>
+
+    {% empty %}
+        <p>Nenhum incidente cadastrado.</p>
+    {% endfor %}
+
 </div>
 
 {% endblock %}

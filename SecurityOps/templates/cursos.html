@@ -1,14 +1,90 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
 <div class="card">
-    <h2>Cursos</h2>
+    <h2>Cursos de Segurança da Informação</h2>
+    <p>Explore conteúdos sobre proteção de dados, LGPD e boas práticas em segurança digital.</p>
+</div>
 
-    <p>
-        Aqui você encontrará conteúdos sobre segurança da informação,
-        proteção de dados, boas práticas e conscientização.
-    </p>
+<div class="cursos-grid">
+
+    <!-- CURSO 1 -->
+    <div class="curso-card">
+        <div class="curso-img">
+            <img src="{% static 'img/curso1a.png' %}" class="img1" alt="Curso 1 capa">
+            <img src="{% static 'img/curso1b.png' %}" class="img2" alt="Curso 1 descrição">
+        </div>
+        <h3>Phishing</h3>
+        <p style="text-align: justify;">Aprenda a identificar e prevenir ataques de phishing, reconhecendo e-mails falsos, links maliciosos e tentativas de engenharia social. 
+            O curso aborda práticas essenciais para proteger dados e evitar fraudes no ambiente digital.</p>
+        <button type="button">Iniciar</button>
+    </div>
+
+    <!-- CURSO 2 -->
+    <div class="curso-card">
+        <div class="curso-img">
+            <img src="{% static 'img/curso2a.png' %}" class="img1" alt="Curso 2 capa">
+            <img src="{% static 'img/curso2b.png' %}" class="img2" alt="Curso 2 descrição">
+        </div>
+        <h3>Segurança de Senhas</h3>
+        <p style="text-align: justify;">Aprenda a criar e proteger senhas seguras, evitando combinações fracas e reutilização. O curso ensina práticas essenciais para aumentar a segurança das contas 
+            e prevenir invasões e vazamento de dados.
+</p>
+        <button type="button">Iniciar</button>
+    </div>
+
+    <!-- CURSO 3 -->
+    <div class="curso-card">
+        <div class="curso-img">
+            <img src="{% static 'img/curso3a.png' %}" class="img1" alt="Curso 3 capa">
+            <img src="{% static 'img/curso3b.png' %}" class="img2" alt="Curso 3 descrição">
+        </div>
+        <h3>Segurança na Internet</h3>
+        <p style="text-align: justify;">Aprenda a navegar com segurança na internet, evitando sites falsos, downloads maliciosos e riscos em redes públicas.
+</p>
+        <button type="button">Iniciar</button>
+    </div>
+
+    <!-- CURSO 4 -->
+    <div class="curso-card">
+        <div class="curso-img">
+            <img src="{% static 'img/curso4a.png' %}" class="img1" alt="Curso 4 capa">
+            <img src="{% static 'img/curso4b.png' %}" class="img2" alt="Curso 4 descrição">
+        </div>
+        <h3>Segurança em Transações Online</h3>
+        <p style="text-align: justify;">Aprenda a fazer transações online com segurança, evitando fraudes e protegendo seus dados financeiros em compras e pagamentos digitais. 
+            Também ensina a identificar sites confiáveis e golpes comuns na internet.
+</p>
+        <button type="button">Iniciar</button>
+    </div>
+
+    <!-- CURSO 5 -->
+    <div class="curso-card">
+        <div class="curso-img">
+            <img src="{% static 'img/curso5a.png' %}" class="img1" alt="Curso 5 capa">
+            <img src="{% static 'img/curso5b.png' %}" class="img2" alt="Curso 5 descrição">
+        </div>
+        <h3>Privacidade de Dados</h3>
+        <p style="text-align: justify;">Aprenda a proteger dados pessoais e de clientes no ambiente digital, garantindo o uso seguro das informações 
+            e evitando exposições indevidas e vazamentos.</p>
+        <button type="button">Iniciar</button>
+    </div>
+
+    <!-- CURSO 6 -->
+    <div class="curso-card">
+        <div class="curso-img">
+            <img src="{% static 'img/curso6a.png' %}" class="img1" alt="Curso 6 capa">
+            <img src="{% static 'img/curso6b.png' %}" class="img2" alt="Curso 6 descrição">
+        </div>
+        <h3>Authenticação e Acesso Seguro</h3>
+        <p style="text-align: justify;">Aprenda como funcionam os métodos de autenticação e controle de acesso, como senhas, biometria e autenticação multifator. O curso aborda práticas essenciais 
+            para garantir que apenas usuários autorizados acessem sistemas e informações.
+</p>
+        <button type="button">Iniciar</button>
+    </div>
+
 </div>
 
 {% endblock %}

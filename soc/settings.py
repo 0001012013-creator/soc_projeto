@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Base do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,6 +11,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
 # Apps instalados
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -19,9 +21,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # ✅ SUA APP (ESSENCIAL)
+    # SUA APP
     'SecurityOps',
 ]
+
 
 # Middlewares
 MIDDLEWARE = [
@@ -34,14 +37,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 # URLs principais
 ROOT_URLCONF = 'soc.urls'
+
 
 # Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # ✅ usando templates dentro da app
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -53,8 +58,10 @@ TEMPLATES = [
     },
 ]
 
+
 # WSGI
 WSGI_APPLICATION = 'soc.wsgi.application'
+
 
 # Banco de dados
 DATABASES = {
@@ -64,40 +71,42 @@ DATABASES = {
     }
 }
 
+
 # Validação de senha
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
+
 
 # Internacionalização
 LANGUAGE_CODE = 'pt-br'
-
 TIME_ZONE = 'America/Sao_Paulo'
-
 USE_I18N = True
 USE_TZ = True
 
-# Arquivos estáticos (CSS)
-STATIC_URL = '/static/'
 
+# Arquivos estáticos
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-# Arquivos de mídia (imagens upload)
+
+# Arquivos de mídia (uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# =========================
+# 🔐 CONFIGURAÇÕES DE LOGIN (CORREÇÃO DO ERRO /accounts/login/)
+# =========================
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login/'
+
 
 # Tipo de chave primária
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
