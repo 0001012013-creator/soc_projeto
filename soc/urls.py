@@ -7,10 +7,14 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # 🔥 todas as rotas vão para a app SecurityOps
+    # Rotas da aplicação
     path('', include('SecurityOps.urls')),
 ]
 
-# 🔥 arquivos de mídia (uploads de imagens)
+# 🔥 SERVIR ARQUIVOS EM DESENVOLVIMENTO
 if settings.DEBUG:
+    # arquivos de mídia (uploads)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    # 🔥 ESSA LINHA QUE FALTAVA (CSS NÃO FUNCIONAVA POR ISSO)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.BASE_DIR / 'SecurityOps/static')

@@ -4,33 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SecurityOps Center</title>
 
     <!-- Fonte -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
+    <!-- CSS GLOBAL -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
 
-<header>
-    <nav>
-        <h1>🛡️ SecurityOps</h1>
+<!-- ================= HEADER ================= -->
+<header class="navbar">
+    <nav class="nav-container">
 
-        <a href="{% url 'home' %}">Dashboard</a>
-        <a href="{% url 'incidente' %}">Incidentes</a>
-        <a href="{% url 'cursos' %}">Cursos</a>
+        <div class="logo">
+            🛡 SecurityOps
+        </div>
+
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Dashboard</a>
+            <a href="{% url 'incidente' %}">Incidentes</a>
+            <a href="{% url 'cursos' %}">Cursos</a>
+        </div>
+
     </nav>
 </header>
 
+<!-- ================= CONTEÚDO ================= -->
 <main>
     {% block content %}
     {% endblock %}
 </main>
 
-<footer style="text-align:center; padding:20px; color:white;">
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
     © 2026 SecurityOps Center • Segurança da Informação
 </footer>
 

@@ -1,10 +1,15 @@
 from pathlib import Path
 import os
 
-# Base do projeto
+# =========================
+# BASE DO PROJETO
+# =========================
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Segurança
+
+# =========================
+# SEGURANÇA
+# =========================
 SECRET_KEY = 'django-insecure-49_u^=eamw)=l-spru(q4q2+p&hv%1dv)gt%#1#5%8o5q9mv7v'
 
 DEBUG = True
@@ -12,7 +17,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Apps instalados
+# =========================
+# APPS INSTALADOS
+# =========================
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -21,12 +28,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # SUA APP
+    # APP DO PROJETO
     'SecurityOps',
 ]
 
 
-# Middlewares
+# =========================
+# MIDDLEWARE
+# =========================
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -38,15 +47,19 @@ MIDDLEWARE = [
 ]
 
 
-# URLs principais
+# =========================
+# URL PRINCIPAL
+# =========================
 ROOT_URLCONF = 'soc.urls'
 
 
-# Templates
+# =========================
+# TEMPLATES
+# =========================
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [],  
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -59,11 +72,15 @@ TEMPLATES = [
 ]
 
 
+# =========================
 # WSGI
+# =========================
 WSGI_APPLICATION = 'soc.wsgi.application'
 
 
-# Banco de dados
+# =========================
+# BANCO DE DADOS
+# =========================
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -72,7 +89,9 @@ DATABASES = {
 }
 
 
-# Validação de senha
+# =========================
+# SENHAS
+# =========================
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -81,32 +100,41 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internacionalização
+# =========================
+# INTERNACIONALIZAÇÃO
+# =========================
 LANGUAGE_CODE = 'pt-br'
+
 TIME_ZONE = 'America/Sao_Paulo'
+
 USE_I18N = True
+
 USE_TZ = True
 
 
-# Arquivos estáticos
+# =========================
+# ESTÁTICOS (🔥 CORRETO PARA SUA SITUAÇÃO)
+# =========================
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+
+# 👉 Você está usando static dentro da app (APP_DIRS=True já resolve)
+# então NÃO precisa definir STATICFILES_DIRS
+STATICFILES_DIRS = []
+
+# 👉 necessário para produção (e não atrapalha em dev)
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
-# Arquivos de mídia (uploads)
+# =========================
+# MÍDIA
+# =========================
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # =========================
-# 🔐 CONFIGURAÇÕES DE LOGIN (CORREÇÃO DO ERRO /accounts/login/)
+# LOGIN
 # =========================
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = '/login/'
-
-
-# Tipo de chave primária
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
